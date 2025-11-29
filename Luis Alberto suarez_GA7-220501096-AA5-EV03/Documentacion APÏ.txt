@@ -1,0 +1,64 @@
+ DOCUMENTACIÓN COMPLETA DE LA API REST  
+**Sistema Empresarial - Spring Boot**  
+  Versión 1  
+Desarrollado por Luis Alberto Suarez Acosta
+
+
+Base URL
+http://localhost:8080
+
+  Convenciones Generales
+- Formato: application/json
+- Códigos de estado: 200 OK, 400 Bad Request, 404 Not Found, 204 No Content
+
+ API por Módulo
+
+  1. Gestión de Inventario (Producto)
+- GET /api/productos  Lista todos los productos
+- POST /api/productos  Crea un nuevo producto
+- PUT /api/productos/{id}  Actualiza un producto
+- DELETE /api/productos/{id}  Elimina un producto
+
+  2. Pedidos (Pedido)
+- GET /api/pedidos  Lista todos los pedidos
+- POST /api/pedidos  Crea un nuevo pedido
+- PUT /api/pedidos/{id}  Actualiza un pedido
+- DELETE /api/pedidos/{id}  Elimina un pedido
+
+  3. Guías de Envío (Guia)
+- GET /api/guias  Lista todas las guías (pedidos pendientes)
+- GET /api/guias/{id}  Obtiene una guía por ID
+
+  4. Seguimiento de Envío (Seguimiento)
+- GET /api/seguimientos  Lista todos los seguimientos
+- GET /api/seguimientos/{id}  Obtiene el estado de seguimiento de un pedido
+
+  5. Notificaciones (Notificacion)
+- POST /api/notificaciones/enviar/{id}  Envía una notificación
+- GET /api/notificaciones  Lista notificaciones pendientes
+
+  6. Reportes Mensuales (Reporte)
+- GET /api/reportes?year=2025&month=11 → Genera reporte mensual
+
+   Cómo usar la API con Postman
+
+1. Descarga Postman.
+2. Inicia tu aplicación Spring Boot.
+3. Configura las peticiones con método, URL y cuerpo JSON.
+4. Haz clic en "Send".
+
+ Ejemplo de petición POST para crear un producto
+Método: POST
+URL: http://localhost:8080/api/productos
+Body:
+{
+  "nombre": "Mouse Logitech",
+  "descripcion": "Mouse inalámbrico",
+  "precio": 50.0,
+  "stock": 20,
+  "categoria": "Accesorios"
+}
+
+Respuesta esperada: Código 200 OK + el producto creado en JSON.
+
+Enlace repositorio Git :https://github.com/sluis2405/API
